@@ -312,7 +312,7 @@ int main()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 
-    unsigned int texture1, texture2, texture3;
+    unsigned int texture1, texture2, texture3, texture4;
     unsigned char *data;
 
     //Configuraões dos shaders
@@ -366,6 +366,22 @@ int main()
     }
     stbi_image_free(data);
 
+    glGenTextures(1, &texture4);
+    glBindTexture(GL_TEXTURE_2D, texture4);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    data = stbi_load("res/images/brasil.png", &width, &height, &nrChannels, 0);
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }else{
+        std::cout << "Failed to load texture of flag" << std::endl;
+    }
+    stbi_image_free(data);
+
     ourShader.use();
     ourShader.setInt("texture1", 0);
 
@@ -376,7 +392,7 @@ int main()
     posteShader.setInt("texture3", 0);
 
     bandeiraShader.use();
-    bandeiraShader.setInt("texture3", 0);
+    bandeiraShader.setInt("texture4", 0);
 
     while (!glfwWindowShouldClose(window)) {
 
@@ -453,7 +469,7 @@ int main()
         glEnableVertexAttribArray(1);
 
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture3);
+        glBindTexture(GL_TEXTURE_2D, texture4);
         model = glm::translate(model, glm::vec3(-2.2f, -1.0f, 0.0f));
 
         bandeiraShader.use();
