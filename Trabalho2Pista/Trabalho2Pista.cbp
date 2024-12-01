@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Trabalho2Pista" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/three-dimentional-shader" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="C:/glfw-3.4.bin.WIN64/include" />
+					<Add directory="C:/glfw-3.4/deps" />
+					<Add directory="C:/glew-2.1.0/include" />
+					<Add directory="C:/glm" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add library="C:/glfw-3.4.bin.WIN64/lib-mingw-w64/libglfw3.a" />
+					<Add library="D:/Programas/CodeBlocks/MinGW/x86_64-w64-mingw32/lib/libgdi32.a" />
+					<Add library="D:/Programas/CodeBlocks/MinGW/x86_64-w64-mingw32/lib/libopengl32.a" />
+					<Add library="C:/glew-2.1.0/lib/Release/x64/glew32.lib" />
+					<Add library="C:/glew-2.1.0/lib/Release/x64/glew32s.lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/three-dimentional-shader" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="include/Shader.h" />
+		<Unit filename="include/stb_image.cpp" />
+		<Unit filename="include/stb_image.h" />
+		<Unit filename="main.cpp" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
