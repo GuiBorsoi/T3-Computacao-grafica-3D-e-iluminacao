@@ -354,9 +354,9 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    data = stbi_load("res/images/riograndedobrasil.png", &width, &height, &nrChannels, 0);
+    data = stbi_load("res/images/granito.jpg", &width, &height, &nrChannels, 0);
     if (data) {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }else{
         std::cout << "Failed to load texture of flag" << std::endl;
@@ -400,8 +400,9 @@ int main()
         ourShader.setMat4("projection", projection);
         glUniformMatrix4fv(glGetUniformLocation(ourShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(ourShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
-
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesChao) / (5 * sizeof(float)));
+
+
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2);
@@ -416,10 +417,24 @@ int main()
 
 
 
+        glBindVertexArray(VAOs[2]);
+        glBindBuffer(GL_ARRAY_BUFFER, VBOs[2]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesPoste), verticesPoste, GL_STATIC_DRAW);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture3);
-        model = glm::translate(model, glm::vec3(0.0f, -0.2f, 0.0f));
+        model = glm::translate(model, glm::vec3(-5.0f, -0.2f, 0.0f));
 
+        posteShader.use();
+        glBindVertexArray(VAOs[2]);
+        posteShader.setMat4("projection", projection);
+        glUniformMatrix4fv(glGetUniformLocation(posteShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
+        glUniformMatrix4fv(glGetUniformLocation(posteShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesPoste) / (5 * sizeof(float)));
 
 
 
