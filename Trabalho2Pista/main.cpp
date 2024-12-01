@@ -289,16 +289,19 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     Shader ourShader("vertex.glsl", "fragment.glsl");
+
     Shader carShader("vertex.glsl", "car_shader.glsl");
 
     Shader bandeiraShader("vertex.glsl", "bandeira_shader.glsl");
+
     Shader posteShader("vertex.glsl", "poste_shader.glsl");
+
 
     viraCamera(0.0f, -60.0f);
 
-    GLuint VBOs[3], VAOs[3];
-    glGenVertexArrays(3, VAOs);
-    glGenBuffers(3, VBOs);
+    GLuint VBOs[4], VAOs[4];
+    glGenVertexArrays(4, VAOs);
+    glGenBuffers(4, VBOs);
 
     glBindVertexArray(VAOs[0]);
     glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
@@ -359,7 +362,7 @@ int main()
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
     }else{
-        std::cout << "Failed to load texture of flag" << std::endl;
+        std::cout << "Failed to load texture of post" << std::endl;
     }
     stbi_image_free(data);
 
@@ -371,6 +374,9 @@ int main()
 
     posteShader.use();
     posteShader.setInt("texture3", 0);
+
+    bandeiraShader.use();
+    bandeiraShader.setInt("texture3", 0);
 
     while (!glfwWindowShouldClose(window)) {
 
@@ -436,6 +442,26 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(posteShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesPoste) / (5 * sizeof(float)));
 
+
+
+        glBindVertexArray(VAOs[3]);
+        glBindBuffer(GL_ARRAY_BUFFER, VBOs[3]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesBandeira), verticesBandeira, GL_STATIC_DRAW);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture3);
+        model = glm::translate(model, glm::vec3(-2.2f, -1.0f, 0.0f));
+
+        bandeiraShader.use();
+        glBindVertexArray(VAOs[3]);
+        bandeiraShader.setMat4("projection", projection);
+        glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
+        glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesBandeira) / (5 * sizeof(float)));
 
 
         glfwSwapBuffers(window);
