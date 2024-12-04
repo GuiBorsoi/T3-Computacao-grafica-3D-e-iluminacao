@@ -45,8 +45,8 @@ struct CarState {
         posicao = glm::vec3(0.0f);
         angulo = 0.0f;
         speed  = 0.0f;
-        aceleracao = 0.05f;
-        maxSpeed   = 0.05f;
+        aceleracao = 0.01f;
+        maxSpeed   = 0.01f;
         curvaSpeed = 1.5f;
     }
 };
@@ -259,6 +259,57 @@ float verticesBandeira[] = {
      0.1f,  4.5f, -0.1f,  0.0f, 1.0f,
      0.1f,  3.5f, -0.1f,  0.0f, 0.0f,
 };
+
+float verticesCubo[] = {
+    // Frente
+    -0.1f, -0.1f,  0.1f,  0.0f, 0.0f,
+     0.1f, -0.1f,  0.1f,  1.0f, 0.0f,
+     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+    -0.1f,  0.1f,  0.1f,  0.0f, 1.0f,
+    -0.1f, -0.1f,  0.1f,  0.0f, 0.0f,
+
+    // Traseira
+    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+     0.1f, -0.1f, -0.1f,  1.0f, 0.0f,
+     0.1f,  0.1f, -0.1f,  1.0f, 1.0f,
+     0.1f,  0.1f, -0.1f,  1.0f, 1.0f,
+    -0.1f,  0.1f, -0.1f,  0.0f, 1.0f,
+    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+
+    // Esquerda
+    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+    -0.1f, -0.1f,  0.1f,  1.0f, 0.0f,
+    -0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+    -0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+    -0.1f,  0.1f, -0.1f,  0.0f, 1.0f,
+    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+
+    // Direita
+     0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+     0.1f, -0.1f,  0.1f,  1.0f, 0.0f,
+     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+     0.1f,  0.1f, -0.1f,  0.0f, 1.0f,
+     0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+
+    // Cima
+    -0.1f,  0.1f, -0.1f,  0.0f, 0.0f,
+     0.1f,  0.1f, -0.1f,  1.0f, 0.0f,
+     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
+    -0.1f,  0.1f,  0.1f,  0.0f, 1.0f,
+    -0.1f,  0.1f, -0.1f,  0.0f, 0.0f,
+
+    // Baixo
+    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+     0.1f, -0.1f, -0.1f,  1.0f, 0.0f,
+     0.1f, -0.1f,  0.1f,  1.0f, 1.0f,
+     0.1f, -0.1f,  0.1f,  1.0f, 1.0f,
+    -0.1f, -0.1f,  0.1f,  0.0f, 1.0f,
+    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+};
+
 
 std::vector<float> originalCarVertices(verticesCarro, verticesCarro + sizeof(verticesCarro) / sizeof(float));
 
@@ -585,7 +636,7 @@ void moveCarEsq() {
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window)
 {
-    const float cameraSpeed = 0.5f;
+    const float cameraSpeed = 0.1f;
 
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
