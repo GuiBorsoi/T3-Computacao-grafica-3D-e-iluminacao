@@ -1241,7 +1241,7 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1733354127 source:c:\users\gborsoi\downloads\nova pasta\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\main.cpp
+1733361513 source:c:\users\gborsoi\downloads\nova pasta\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<stb_image.h>

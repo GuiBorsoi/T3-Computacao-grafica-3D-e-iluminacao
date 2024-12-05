@@ -56,145 +56,112 @@ CarState Car;
 
 // Dados de vértices para o chão
 float verticesChao[] = {
-        -10.0f, -0.6f, -10.0f,  0.0f, 1.0f,
-         10.0f, -0.6f, -10.0f,  1.0f, 1.0f,
-         10.0f, -0.6f,  10.0f,  1.0f, 0.0f,
-         10.0f, -0.6f,  10.0f,  1.0f, 0.0f,
-        -10.0f, -0.6f,  10.0f,  0.0f, 0.0f,
-        -10.0f, -0.6f, -10.0f,  0.0f, 1.0f,
+        -10.0f, -0.6f, -10.0f,   0.0f, -1.0f, 0.0f,   0.0f, 1.0f,
+         10.0f, -0.6f, -10.0f,   0.0f, -1.0f, 0.0f,   1.0f, 1.0f,
+         10.0f, -0.6f,  10.0f,   0.0f, -1.0f, 0.0f,   1.0f, 0.0f,
+         10.0f, -0.6f,  10.0f,   0.0f, -1.0f, 0.0f,   1.0f, 0.0f,
+        -10.0f, -0.6f,  10.0f,   0.0f, -1.0f, 0.0f,   0.0f, 0.0f,
+        -10.0f, -0.6f, -10.0f,   0.0f, -1.0f, 0.0f,   0.0f, 1.0f,
 };
 
 float verticesCarro[] = {
 
-    // Main body (lower part)
-    // Front face
-    -0.5f,  0.0f, -0.2f,  0.0f, 0.0f,
-     0.5f,  0.0f, -0.2f,  1.0f, 0.0f,
-     0.5f,  0.3f, -0.2f,  1.0f, 1.0f,
-     0.5f,  0.3f, -0.2f,  1.0f, 1.0f,
-    -0.5f,  0.3f, -0.2f,  0.0f, 1.0f,
-    -0.5f,  0.0f, -0.2f,  0.0f, 0.0f,
-
-    // Back face
-    -0.5f,  0.0f,  0.2f,  0.0f, 0.0f,
-     0.5f,  0.0f,  0.2f,  1.0f, 0.0f,
-     0.5f,  0.3f,  0.2f,  1.0f, 1.0f,
-     0.5f,  0.3f,  0.2f,  1.0f, 1.0f,
-    -0.5f,  0.3f,  0.2f,  0.0f, 1.0f,
-    -0.5f,  0.0f,  0.2f,  0.0f, 0.0f,
-
-    // Left side
-    -0.5f,  0.0f,  0.2f,  0.0f, 0.0f,
-    -0.5f,  0.0f, -0.2f,  1.0f, 0.0f,
-    -0.5f,  0.3f, -0.2f,  1.0f, 1.0f,
-    -0.5f,  0.3f, -0.2f,  1.0f, 1.0f,
-    -0.5f,  0.3f,  0.2f,  0.0f, 1.0f,
-    -0.5f,  0.0f,  0.2f,  0.0f, 0.0f,
-
-    // Right side
-     0.5f,  0.0f,  0.2f,  0.0f, 0.0f,
-     0.5f,  0.0f, -0.2f,  1.0f, 0.0f,
-     0.5f,  0.3f, -0.2f,  1.0f, 1.0f,
-     0.5f,  0.3f, -0.2f,  1.0f, 1.0f,
-     0.5f,  0.3f,  0.2f,  0.0f, 1.0f,
-     0.5f,  0.0f,  0.2f,  0.0f, 0.0f,
-
-       // Top
-    -0.5f,  0.3f, -0.2f,  0.0f, 0.0f,
-     0.5f,  0.3f, -0.2f,  1.0f, 0.0f,
-     0.5f,  0.3f,  0.2f,  1.0f, 1.0f,
-     0.5f,  0.3f,  0.2f,  1.0f, 1.0f,
-    -0.5f,  0.3f,  0.2f,  0.0f, 1.0f,
-    -0.5f,  0.3f, -0.2f,  0.0f, 0.0f,
-
-    // Bottom
-    -0.5f,  0.0f, -0.2f,  0.0f, 0.0f,
-     0.5f,  0.0f, -0.2f,  1.0f, 0.0f,
-     0.5f,  0.0f,  0.2f,  1.0f, 1.0f,
-     0.5f,  0.0f,  0.2f,  1.0f, 1.0f,
-    -0.5f,  0.0f,  0.2f,  0.0f, 1.0f,
-    -0.5f,  0.0f, -0.2f,  0.0f, 0.0f,
-
-    // Cabin (rectangular part)
-    // Front face
-    -0.25f,  0.3f, -0.1f,  0.0f, 0.0f,
-     0.25f,  0.3f, -0.1f,  1.0f, 0.0f,
-     0.25f,  0.45f, -0.1f,  1.0f, 1.0f,
-     0.25f,  0.45f, -0.1f,  1.0f, 1.0f,
-    -0.25f,  0.45f, -0.1f,  0.0f, 1.0f,
-    -0.25f,  0.3f, -0.1f,  0.0f, 0.0f,
-
-    // Back face
-    -0.25f,  0.3f,  0.1f,  0.0f, 0.0f,
-     0.25f,  0.3f,  0.1f,  1.0f, 0.0f,
-     0.25f,  0.45f,  0.1f,  1.0f, 1.0f,
-     0.25f,  0.45f,  0.1f,  1.0f, 1.0f,
-    -0.25f,  0.45f,  0.1f,  0.0f, 1.0f,
-    -0.25f,  0.3f,  0.1f,  0.0f, 0.0f,
-
-    // Left side
-    -0.25f,  0.3f,  0.1f,  0.0f, 0.0f,
-    -0.25f,  0.3f, -0.1f,  1.0f, 0.0f,
-    -0.25f,  0.45f, -0.1f,  1.0f, 1.0f,
-    -0.25f,  0.45f, -0.1f,  1.0f, 1.0f,
-    -0.25f,  0.45f,  0.1f,  0.0f, 1.0f,
-    -0.25f,  0.3f,  0.1f,  0.0f, 0.0f,
-
-    // Right side
-     0.25f,  0.3f,  0.1f,  0.0f, 0.0f,
-     0.25f,  0.3f, -0.1f,  1.0f, 0.0f,
-     0.25f,  0.45f, -0.1f,  1.0f, 1.0f,
-     0.25f,  0.45f, -0.1f,  1.0f, 1.0f,
-     0.25f,  0.45f,  0.1f,  0.0f, 1.0f,
-     0.25f,  0.3f,  0.1f,  0.0f, 0.0f,
-
-    // Top
-    -0.25f,  0.45f, -0.1f,  0.0f, 0.0f,
-     0.25f,  0.45f, -0.1f,  1.0f, 0.0f,
-     0.25f,  0.45f,  0.1f,  1.0f, 1.0f,
-     0.25f,  0.45f,  0.1f,  1.0f, 1.0f,
-    -0.25f,  0.45f,  0.1f,  0.0f, 1.0f,
-    -0.25f,  0.45f, -0.1f,  0.0f, 0.0f,
-
-    // Bottom
-    -0.25f,  0.3f, -0.1f,  0.0f, 0.0f,
-     0.25f,  0.3f, -0.1f,  1.0f, 0.0f,
-     0.25f,  0.3f,  0.1f,  1.0f, 1.0f,
-     0.25f,  0.3f,  0.1f,  1.0f, 1.0f,
-    -0.25f,  0.3f,  0.1f,  0.0f, 1.0f,
-    -0.25f,  0.3f, -0.1f,  0.0f, 0.0f,
-
-    // Rodas
-
-    -0.4f, -0.2f, -0.3f,  0.0f, 0.0f,
-    -0.3f, -0.2f, -0.3f,  1.0f, 0.0f,
-    -0.3f,  0.0f, -0.3f,  1.0f, 1.0f,
-    -0.3f,  0.0f, -0.3f,  1.0f, 1.0f,
-    -0.4f,  0.0f, -0.3f,  0.0f, 1.0f,
-    -0.4f, -0.2f, -0.3f,  0.0f, 0.0f,
-
-
-    0.3f, -0.2f, -0.3f,  0.0f, 0.0f,
-    0.4f, -0.2f, -0.3f,  1.0f, 0.0f,
-    0.4f,  0.0f, -0.3f,  1.0f, 1.0f,
-    0.4f,  0.0f, -0.3f,  1.0f, 1.0f,
-    0.3f,  0.0f, -0.3f,  0.0f, 1.0f,
-    0.3f, -0.2f, -0.3f,  0.0f, 0.0f,
-
-
-    -0.4f, -0.2f,  0.3f,  0.0f, 0.0f,
-    -0.3f, -0.2f,  0.3f,  1.0f, 0.0f,
-    -0.3f,  0.0f,  0.3f,  1.0f, 1.0f,
-    -0.3f,  0.0f,  0.3f,  1.0f, 1.0f,
-    -0.4f,  0.0f,  0.3f,  0.0f, 1.0f,
-    -0.4f, -0.2f,  0.3f,  0.0f, 0.0f,
-
-    0.3f, -0.2f,  0.3f,  0.0f, 0.0f,
-    0.4f, -0.2f,  0.3f,  1.0f, 0.0f,
-    0.4f,  0.0f,  0.3f,  1.0f, 1.0f,
-    0.4f,  0.0f,  0.3f,  1.0f, 1.0f,
-    0.3f,  0.0f,  0.3f,  0.0f, 1.0f,
-    0.3f, -0.2f,  0.3f,  0.0f, 0.0f,
+    -0.5f,  0.0f, -0.2f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+     0.5f,  0.0f, -0.2f,   0.0f, 0.0f, 1.0f,       1.0f, 0.0f,
+     0.5f,  0.3f, -0.2f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+     0.5f,  0.3f, -0.2f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+    -0.5f,  0.3f, -0.2f,   0.0f, 0.0f, 1.0f,       0.0f, 1.0f,
+    -0.5f,  0.0f, -0.2f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+    -0.5f,  0.0f,  0.2f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+     0.5f,  0.0f,  0.2f,   0.0f, 0.0f, 1.0f,       1.0f, 0.0f,
+     0.5f,  0.3f,  0.2f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+     0.5f,  0.3f,  0.2f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+    -0.5f,  0.3f,  0.2f,   0.0f, 0.0f, 1.0f,       0.0f, 1.0f,
+    -0.5f,  0.0f,  0.2f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+    -0.5f,  0.0f,  0.2f,   1.0f, 0.0f, 0.0f,       0.0f, 0.0f,
+    -0.5f,  0.0f, -0.2f,   1.0f, 0.0f, 0.0f,       1.0f, 0.0f,
+    -0.5f,  0.3f, -0.2f,   1.0f, 0.0f, 0.0f,       1.0f, 1.0f,
+    -0.5f,  0.3f, -0.2f,   1.0f, 0.0f, 0.0f,       1.0f, 1.0f,
+    -0.5f,  0.3f,  0.2f,   1.0f, 0.0f, 0.0f,       0.0f, 1.0f,
+    -0.5f,  0.0f,  0.2f,   1.0f, 0.0f, 0.0f,       0.0f, 0.0f,
+     0.5f,  0.0f,  0.2f,   1.0f, 0.0f, 0.0f,       0.0f, 0.0f,
+     0.5f,  0.0f, -0.2f,   1.0f, 0.0f, 0.0f,       1.0f, 0.0f,
+     0.5f,  0.3f, -0.2f,   1.0f, 0.0f, 0.0f,       1.0f, 1.0f,
+     0.5f,  0.3f, -0.2f,   1.0f, 0.0f, 0.0f,       1.0f, 1.0f,
+     0.5f,  0.3f,  0.2f,   1.0f, 0.0f, 0.0f,       0.0f, 1.0f,
+     0.5f,  0.0f,  0.2f,   1.0f, 0.0f, 0.0f,       0.0f, 0.0f,
+    -0.5f,  0.3f, -0.2f,   0.0f, -1.0f, 0.0f,       0.0f, 0.0f,
+     0.5f,  0.3f, -0.2f,   0.0f, -1.0f, 0.0f,       1.0f, 0.0f,
+     0.5f,  0.3f,  0.2f,   0.0f, -1.0f, 0.0f,       1.0f, 1.0f,
+     0.5f,  0.3f,  0.2f,   0.0f, -1.0f, 0.0f,       1.0f, 1.0f,
+    -0.5f,  0.3f,  0.2f,   0.0f, -1.0f, 0.0f,       0.0f, 1.0f,
+    -0.5f,  0.3f, -0.2f,   0.0f, -1.0f, 0.0f,       0.0f, 0.0f,
+    -0.5f,  0.0f, -0.2f,   0.0f, -1.0f, 0.0f,       0.0f, 0.0f,
+     0.5f,  0.0f, -0.2f,   0.0f, -1.0f, 0.0f,       1.0f, 0.0f,
+     0.5f,  0.0f,  0.2f,   0.0f, -1.0f, 0.0f,       1.0f, 1.0f,
+     0.5f,  0.0f,  0.2f,   0.0f, -1.0f, 0.0f,       1.0f, 1.0f,
+    -0.5f,  0.0f,  0.2f,   0.0f, -1.0f, 0.0f,       0.0f, 1.0f,
+    -0.5f,  0.0f, -0.2f,   0.0f, -1.0f, 0.0f,       0.0f, 0.0f,
+    -0.25f,  0.3f, -0.1f,  0.0f, 0.0f, 1.0f,        0.0f, 0.0f,
+     0.25f,  0.3f, -0.1f,  0.0f, 0.0f, 1.0f,        1.0f, 0.0f,
+     0.25f,  0.45f, -0.1f, 0.0f, 0.0f, 1.0f,         1.0f, 1.0f,
+     0.25f,  0.45f, -0.1f, 0.0f, 0.0f, 1.0f,         1.0f, 1.0f,
+    -0.25f,  0.45f, -0.1f, 0.0f, 0.0f, 1.0f,         0.0f, 1.0f,
+    -0.25f,  0.3f, -0.1f,  0.0f, 0.0f, 1.0f,        0.0f, 0.0f,
+    -0.25f,  0.3f,  0.1f,  0.0f, 0.0f, 1.0f,        0.0f, 0.0f,
+     0.25f,  0.3f,  0.1f,  0.0f, 0.0f, 1.0f,        1.0f, 0.0f,
+     0.25f,  0.45f,  0.1f, 0.0f, 0.0f, 1.0f,         1.0f, 1.0f,
+     0.25f,  0.45f,  0.1f, 0.0f, 0.0f, 1.0f,         1.0f, 1.0f,
+    -0.25f,  0.45f,  0.1f, 0.0f, 0.0f, 1.0f,         0.0f, 1.0f,
+    -0.25f,  0.3f,  0.1f,  0.0f, 0.0f, 1.0f,        0.0f, 0.0f,
+    -0.25f,  0.3f,  0.1f,  1.0f, 0.0f, 0.0f,        0.0f, 0.0f,
+    -0.25f,  0.3f, -0.1f,  1.0f, 0.0f, 0.0f,        1.0f, 0.0f,
+    -0.25f,  0.45f, -0.1f, 1.0f, 0.0f, 0.0f,         1.0f, 1.0f,
+    -0.25f,  0.45f, -0.1f, 1.0f, 0.0f, 0.0f,         1.0f, 1.0f,
+    -0.25f,  0.45f,  0.1f, 1.0f, 0.0f, 0.0f,         0.0f, 1.0f,
+    -0.25f,  0.3f,  0.1f,  1.0f, 0.0f, 0.0f,        0.0f, 0.0f,
+     0.25f,  0.3f,  0.1f,  1.0f, 0.0f, 0.0f,        0.0f, 0.0f,
+     0.25f,  0.3f, -0.1f,  1.0f, 0.0f, 0.0f,        1.0f, 0.0f,
+     0.25f,  0.45f, -0.1f, 1.0f, 0.0f, 0.0f,         1.0f, 1.0f,
+     0.25f,  0.45f, -0.1f, 1.0f, 0.0f, 0.0f,         1.0f, 1.0f,
+     0.25f,  0.45f,  0.1f, 1.0f, 0.0f, 0.0f,         0.0f, 1.0f,
+     0.25f,  0.3f,  0.1f,  1.0f, 0.0f, 0.0f,        0.0f, 0.0f,
+    -0.25f,  0.45f, -0.1f, 0.0f, -1.0f, 0.0f,         0.0f, 0.0f,
+     0.25f,  0.45f, -0.1f, 0.0f, -1.0f, 0.0f,         1.0f, 0.0f,
+     0.25f,  0.45f,  0.1f, 0.0f, -1.0f, 0.0f,         1.0f, 1.0f,
+     0.25f,  0.45f,  0.1f, 0.0f, -1.0f, 0.0f,         1.0f, 1.0f,
+    -0.25f,  0.45f,  0.1f, 0.0f, -1.0f, 0.0f,         0.0f, 1.0f,
+    -0.25f,  0.45f, -0.1f, 0.0f, -1.0f, 0.0f,         0.0f, 0.0f,
+    -0.25f,  0.3f, -0.1f,  0.0f, -1.0f, 0.0f,        0.0f, 0.0f,
+     0.25f,  0.3f, -0.1f,  0.0f, -1.0f, 0.0f,        1.0f, 0.0f,
+     0.25f,  0.3f,  0.1f,  0.0f, -1.0f, 0.0f,        1.0f, 1.0f,
+     0.25f,  0.3f,  0.1f,  0.0f, -1.0f, 0.0f,        1.0f, 1.0f,
+    -0.25f,  0.3f,  0.1f,  0.0f, -1.0f, 0.0f,        0.0f, 1.0f,
+    -0.25f,  0.3f, -0.1f,  0.0f, -1.0f, 0.0f,        0.0f, 0.0f,
+    -0.4f, -0.2f, -0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+    -0.3f, -0.2f, -0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 0.0f,
+    -0.3f,  0.0f, -0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+    -0.3f,  0.0f, -0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+    -0.4f,  0.0f, -0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 1.0f,
+    -0.4f, -0.2f, -0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+     0.3f, -0.2f, -0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+     0.4f, -0.2f, -0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 0.0f,
+     0.4f,  0.0f, -0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+     0.4f,  0.0f, -0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+     0.3f,  0.0f, -0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 1.0f,
+     0.3f, -0.2f, -0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+    -0.4f, -0.2f,  0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+    -0.3f, -0.2f,  0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 0.0f,
+    -0.3f,  0.0f,  0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+    -0.3f,  0.0f,  0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+    -0.4f,  0.0f,  0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 1.0f,
+    -0.4f, -0.2f,  0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+     0.3f, -0.2f,  0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
+     0.4f, -0.2f,  0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 0.0f,
+     0.4f,  0.0f,  0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+     0.4f,  0.0f,  0.3f,   0.0f, 0.0f, 1.0f,       1.0f, 1.0f,
+     0.3f,  0.0f,  0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 1.0f,
+     0.3f, -0.2f,  0.3f,   0.0f, 0.0f, 1.0f,       0.0f, 0.0f,
 
 
 };
@@ -259,6 +226,8 @@ float verticesBandeira[] = {
      0.1f,  4.5f, -0.1f,  0.0f, 1.0f,
      0.1f,  3.5f, -0.1f,  0.0f, 0.0f,
 };
+
+
 
 float verticesCubo[] = {
     // Frente
@@ -348,20 +317,27 @@ int main()
     Shader posteShader("vertex.glsl", "poste_shader.glsl");
 
 
+
+    Shader cuboShader("vertex.glsl", "bandeira_shader.glsl");
+
+
     viraCamera(0.0f, -60.0f);
 
-    GLuint VBOs[4], VAOs[4];
-    glGenVertexArrays(4, VAOs);
-    glGenBuffers(4, VBOs);
+    GLuint VBOs[5], VAOs[5];
+    glGenVertexArrays(5, VAOs);
+    glGenBuffers(5, VBOs);
 
     glBindVertexArray(VAOs[0]);
     glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(verticesChao), verticesChao, GL_STATIC_DRAW);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+
 
     unsigned int texture1, texture2, texture3, texture4;
     unsigned char *data;
@@ -445,16 +421,21 @@ int main()
     bandeiraShader.use();
     bandeiraShader.setInt("texture4", 0);
 
+    cuboShader.use();
+    cuboShader.setInt("texture4", 0);
+
     while (!glfwWindowShouldClose(window)) {
 
         // Configuração do carro
         glBindVertexArray(VAOs[1]);
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCarro), verticesCarro, GL_STATIC_DRAW);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
         glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+        glEnableVertexAttribArray(2);
 
         processInput(window);
 
@@ -473,9 +454,13 @@ int main()
         ourShader.setMat4("projection", projection);
         glUniformMatrix4fv(glGetUniformLocation(ourShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(ourShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+
+
+        ourShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
+        ourShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
+        ourShader.setFloat("specularStrength", 1.0f);
+
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesChao) / (5 * sizeof(float)));
-
-
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2);
@@ -497,6 +482,8 @@ int main()
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
         glEnableVertexAttribArray(1);
+
+
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture3);
@@ -529,6 +516,28 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesBandeira) / (5 * sizeof(float)));
+
+
+
+
+        glBindVertexArray(VAOs[4]);
+        glBindBuffer(GL_ARRAY_BUFFER, VBOs[4]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCubo), verticesCubo, GL_STATIC_DRAW);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture4);
+        model = glm::translate(model, glm::vec3(5.0f, 3.0f, 0.0f));
+
+        cuboShader.use();
+        glBindVertexArray(VAOs[4]);
+        cuboShader.setMat4("projection", projection);
+        glUniformMatrix4fv(glGetUniformLocation(cuboShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
+        glUniformMatrix4fv(glGetUniformLocation(cuboShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCubo) / (5 * sizeof(float)));
 
 
         glfwSwapBuffers(window);
