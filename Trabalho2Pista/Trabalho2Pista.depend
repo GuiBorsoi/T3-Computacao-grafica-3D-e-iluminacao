@@ -1202,7 +1202,7 @@
 	<intrin.h>
 	<arm_neon.h>
 
-1733077316 source:c:\facul\computação-gráfica\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\main.cpp
+1733599065 source:c:\facul\computação-gráfica\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<stb_image.h>

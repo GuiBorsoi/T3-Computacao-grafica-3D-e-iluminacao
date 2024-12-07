@@ -46,8 +46,8 @@ struct CarState {
         angulo = 0.0f;
         speed  = 0.0f;
         aceleracao = 0.01f;
-        maxSpeed   = 0.01f;
-        curvaSpeed = 1.5f;
+        maxSpeed   = 0.10f;
+        curvaSpeed = 3.5f;
     }
 };
 
@@ -471,6 +471,10 @@ int main()
         carShader.setMat4("projection", projection);
         glUniformMatrix4fv(glGetUniformLocation(carShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(carShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+
+        carShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
+        carShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
+        carShader.setFloat("specularStrength", 1.0f);
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCarro) / (5 * sizeof(float)));
 
 
@@ -578,11 +582,11 @@ void updateCarVertices() {
     transform = glm::translate(transform, Car.posicao);
     transform = glm::rotate(transform, glm::radians(Car.angulo), glm::vec3(0.0f, 1.0f, 0.0f));
 
-    for (int i = 0; i < originalCarVertices.size() / 5; ++i) {
+    for (int i = 0; i < originalCarVertices.size() / 8; ++i) {
         glm::vec4 vertex(
-            originalCarVertices[i * 5], // x
-            originalCarVertices[i * 5 + 1], // y
-            originalCarVertices[i * 5 + 2], // z
+            originalCarVertices[i * 8], // x
+            originalCarVertices[i * 8 + 1], // y
+            originalCarVertices[i * 8 + 2], // z
             1.0f
         );
 
@@ -590,11 +594,11 @@ void updateCarVertices() {
         glm::vec4 transformed = transform * vertex;
 
         // Atualiza os vértices
-        verticesCarro[i * 5] = transformed.x;
-        verticesCarro[i * 5 + 1] = transformed.y;
-        verticesCarro[i * 5 + 2] = transformed.z;
-        verticesCarro[i * 5 + 3] = originalCarVertices[i * 5 + 3]; // TexCoord X
-        verticesCarro[i * 5 + 4] = originalCarVertices[i * 5 + 4]; // TexCoord Y
+        verticesCarro[i * 8] = transformed.x;
+        verticesCarro[i * 8 + 1] = transformed.y;
+        verticesCarro[i * 8 + 2] = transformed.z;
+        verticesCarro[i * 8 + 3] = originalCarVertices[i * 8 + 3]; // TexCoord X
+        verticesCarro[i * 8 + 4] = originalCarVertices[i * 8 + 4]; // TexCoord Y
     }
 }
 
