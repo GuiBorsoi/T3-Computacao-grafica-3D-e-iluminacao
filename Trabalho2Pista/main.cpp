@@ -219,12 +219,12 @@ float verticesPoste[] = {
 
 float verticesBandeira[] = {
 
-     0.1f,  3.5f, -0.1f,  0.0f, 0.0f, // Próximo ao topo do poste
-     2.1f,  3.5f, -0.1f,  1.0f, 0.0f,
-     2.1f,  4.5f, -0.1f,  1.0f, 1.0f,
-     2.1f,  4.5f, -0.1f,  1.0f, 1.0f,
-     0.1f,  4.5f, -0.1f,  0.0f, 1.0f,
-     0.1f,  3.5f, -0.1f,  0.0f, 0.0f,
+     0.1f,  3.5f, -0.1f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f,
+     2.1f,  3.5f, -0.1f,    0.0f, 0.0f, 1.0f,    1.0f, 0.0f,
+     2.1f,  4.5f, -0.1f,    0.0f, 0.0f, 1.0f,    1.0f, 1.0f,
+     2.1f,  4.5f, -0.1f,    0.0f, 0.0f, 1.0f,    1.0f, 1.0f,
+     0.1f,  4.5f, -0.1f,    0.0f, 0.0f, 1.0f,    0.0f, 1.0f,
+     0.1f,  3.5f, -0.1f,    0.0f, 0.0f, 1.0f,    0.0f, 0.0f,
 };
 
 
@@ -339,7 +339,7 @@ int main()
     glEnableVertexAttribArray(2);
 
 
-    unsigned int texture1, texture2, texture3, texture4;
+    unsigned int texture1, texture2, texture3, texture4, texture5;
     unsigned char *data;
 
     //Configuraões dos shaders
@@ -505,10 +505,12 @@ int main()
         glBindVertexArray(VAOs[3]);
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[3]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(verticesBandeira), verticesBandeira, GL_STATIC_DRAW);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
         glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+        glEnableVertexAttribArray(2);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture4);
@@ -519,6 +521,11 @@ int main()
         bandeiraShader.setMat4("projection", projection);
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
+
+        bandeiraShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
+        bandeiraShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
+        bandeiraShader.setFloat("specularStrength", 1.0f);
+
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesBandeira) / (5 * sizeof(float)));
 
 
@@ -548,8 +555,8 @@ int main()
         glfwPollEvents();
     }
 
-    glDeleteVertexArrays(3, VAOs);
-    glDeleteBuffers(3, VBOs);
+    glDeleteVertexArrays(5, VAOs);
+    glDeleteBuffers(5, VBOs);
     glfwTerminate();
     return 0;
 }
