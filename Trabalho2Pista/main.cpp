@@ -167,53 +167,42 @@ float verticesCarro[] = {
 };
 
 float verticesPoste[] = {
-    // Front face
-    -0.1f, -0.6f, -0.1f,  0.0f, 0.0f,
-     0.1f, -0.6f, -0.1f,  1.0f, 0.0f,
-     0.1f,  3.5f, -0.1f,  1.0f, 1.0f,
-     0.1f,  3.5f, -0.1f,  1.0f, 1.0f,
-    -0.1f,  3.5f, -0.1f,  0.0f, 1.0f,
-    -0.1f, -0.6f, -0.1f,  0.0f, 0.0f,
-
-    // Back face
-    -0.1f, -0.6f,  0.1f,  0.0f, 0.0f,
-     0.1f, -0.6f,  0.1f,  1.0f, 0.0f,
-     0.1f,  3.5f,  0.1f,  1.0f, 1.0f,
-     0.1f,  3.5f,  0.1f,  1.0f, 1.0f,
-    -0.1f,  3.5f,  0.1f,  0.0f, 1.0f,
-    -0.1f, -0.6f,  0.1f,  0.0f, 0.0f,
-
-    // Left face
-    -0.1f, -0.6f,  0.1f,  0.0f, 0.0f,
-    -0.1f, -0.6f, -0.1f,  1.0f, 0.0f,
-    -0.1f,  3.5f, -0.1f,  1.0f, 1.0f,
-    -0.1f,  3.5f, -0.1f,  1.0f, 1.0f,
-    -0.1f,  3.5f,  0.1f,  0.0f, 1.0f,
-    -0.1f, -0.6f,  0.1f,  0.0f, 0.0f,
-
-    // Right face
-     0.1f, -0.6f,  0.1f,  0.0f, 0.0f,
-     0.1f, -0.6f, -0.1f,  1.0f, 0.0f,
-     0.1f,  3.5f, -0.1f,  1.0f, 1.0f,
-     0.1f,  3.5f, -0.1f,  1.0f, 1.0f,
-     0.1f,  3.5f,  0.1f,  0.0f, 1.0f,
-     0.1f, -0.6f,  0.1f,  0.0f, 0.0f,
-
-    // Top face
-    -0.1f,  3.5f, -0.1f,  0.0f, 0.0f,
-     0.1f,  3.5f, -0.1f,  1.0f, 0.0f,
-     0.1f,  3.5f,  0.1f,  1.0f, 1.0f,
-     0.1f,  3.5f,  0.1f,  1.0f, 1.0f,
-    -0.1f,  3.5f,  0.1f,  0.0f, 1.0f,
-    -0.1f,  3.5f, -0.1f,  0.0f, 0.0f,
-
-    // Bottom face
-    -0.1f, -0.6f, -0.1f,  0.0f, 0.0f,
-     0.1f, -0.6f, -0.1f,  1.0f, 0.0f,
-     0.1f, -0.6f,  0.1f,  1.0f, 1.0f,
-     0.1f, -0.6f,  0.1f,  1.0f, 1.0f,
-    -0.1f, -0.6f,  0.1f,  0.0f, 1.0f,
-    -0.1f, -0.6f, -0.1f,  0.0f, 0.0f,
+-0.1f, -0.6f, -0.1f,  	 0.0f, 0.0f, 1.0f,			0.0f, 0.0f,
+ 0.1f, -0.6f, -0.1f,  	 0.0f, 0.0f, 1.0f,			1.0f, 0.0f,
+ 0.1f,  3.5f, -0.1f,  	 0.0f, 0.0f, 1.0f,			1.0f, 1.0f,
+ 0.1f,  3.5f, -0.1f,  	 0.0f, 0.0f, 1.0f,			1.0f, 1.0f,
+-0.1f,  3.5f, -0.1f,  	 0.0f, 0.0f, 1.0f,			0.0f, 1.0f,
+-0.1f, -0.6f, -0.1f,  	 0.0f, 0.0f, 1.0f,			0.0f, 0.0f,
+-0.1f, -0.6f,  0.1f,  	 0.0f, 0.0f, 1.0f,			0.0f, 0.0f,
+ 0.1f, -0.6f,  0.1f,  	 0.0f, 0.0f, 1.0f,			1.0f, 0.0f,
+ 0.1f,  3.5f,  0.1f,  	 0.0f, 0.0f, 1.0f,			1.0f, 1.0f,
+ 0.1f,  3.5f,  0.1f,  	 0.0f, 0.0f, 1.0f,			1.0f, 1.0f,
+-0.1f,  3.5f,  0.1f,  	 0.0f, 0.0f, 1.0f,			0.0f, 1.0f,
+-0.1f, -0.6f,  0.1f,  	 0.0f, 0.0f, 1.0f,			0.0f, 0.0f,
+-0.1f, -0.6f,  0.1f,  	 1.0f, 0.0f, 0.0f,			0.0f, 0.0f,
+-0.1f, -0.6f, -0.1f,  	 1.0f, 0.0f, 0.0f,			1.0f, 0.0f,
+-0.1f,  3.5f, -0.1f,  	 1.0f, 0.0f, 0.0f,			1.0f, 1.0f,
+-0.1f,  3.5f, -0.1f,  	 1.0f, 0.0f, 0.0f,			1.0f, 1.0f,
+-0.1f,  3.5f,  0.1f,  	 1.0f, 0.0f, 0.0f,			0.0f, 1.0f,
+-0.1f, -0.6f,  0.1f,  	 1.0f, 0.0f, 0.0f,			0.0f, 0.0f,
+ 0.1f, -0.6f,  0.1f,  	 1.0f, 0.0f, 0.0f,			0.0f, 0.0f,
+ 0.1f, -0.6f, -0.1f,  	 1.0f, 0.0f, 0.0f,			1.0f, 0.0f,
+ 0.1f,  3.5f, -0.1f,  	 1.0f, 0.0f, 0.0f,			1.0f, 1.0f,
+ 0.1f,  3.5f, -0.1f,  	 1.0f, 0.0f, 0.0f,			1.0f, 1.0f,
+ 0.1f,  3.5f,  0.1f,  	 1.0f, 0.0f, 0.0f,			0.0f, 1.0f,
+ 0.1f, -0.6f,  0.1f,  	 1.0f, 0.0f, 0.0f,			0.0f, 0.0f,
+-0.1f,  3.5f, -0.1f,  	 0.0f, -1.0f, 0.0f,			0.0f, 0.0f,
+ 0.1f,  3.5f, -0.1f,  	 0.0f, -1.0f, 0.0f,			1.0f, 0.0f,
+ 0.1f,  3.5f,  0.1f,  	 0.0f, -1.0f, 0.0f,			1.0f, 1.0f,
+ 0.1f,  3.5f,  0.1f,  	 0.0f, -1.0f, 0.0f,			1.0f, 1.0f,
+-0.1f,  3.5f,  0.1f,  	 0.0f, -1.0f, 0.0f,			0.0f, 1.0f,
+-0.1f,  3.5f, -0.1f,  	 0.0f, -1.0f, 0.0f,			0.0f, 0.0f,
+-0.1f, -0.6f, -0.1f,  	 0.0f, -1.0f, 0.0f,			0.0f, 0.0f,
+ 0.1f, -0.6f, -0.1f,  	 0.0f, -1.0f, 0.0f,			1.0f, 0.0f,
+ 0.1f, -0.6f,  0.1f,  	 0.0f, -1.0f, 0.0f,			1.0f, 1.0f,
+ 0.1f, -0.6f,  0.1f,  	 0.0f, -1.0f, 0.0f,			1.0f, 1.0f,
+-0.1f, -0.6f,  0.1f,  	 0.0f, -1.0f, 0.0f,			0.0f, 1.0f,
+-0.1f, -0.6f, -0.1f,  	 0.0f, -1.0f, 0.0f,			0.0f, 0.0f,
 };
 
 
@@ -409,6 +398,22 @@ int main()
     }
     stbi_image_free(data);
 
+    glGenTextures(1, &texture5);
+    glBindTexture(GL_TEXTURE_2D, texture5);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    data = stbi_load("res/images/branco.png", &width, &height, &nrChannels, 0);
+    if (data) {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }else{
+        std::cout << "Failed to load texture of flag" << std::endl;
+    }
+    stbi_image_free(data);
+
     ourShader.use();
     ourShader.setInt("texture1", 0);
 
@@ -422,20 +427,9 @@ int main()
     bandeiraShader.setInt("texture4", 0);
 
     cuboShader.use();
-    cuboShader.setInt("texture4", 0);
+    cuboShader.setInt("texture5", 0);
 
     while (!glfwWindowShouldClose(window)) {
-
-        // Configuração do carro
-        glBindVertexArray(VAOs[1]);
-        glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCarro), verticesCarro, GL_STATIC_DRAW);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-        glEnableVertexAttribArray(1);
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-        glEnableVertexAttribArray(2);
 
         processInput(window);
 
@@ -449,6 +443,8 @@ int main()
         view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
         projection = glm::perspective(glm::radians(70.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 220.0f);
 
+        // Chão -------------------------------------------------------------------------------------------------------
+
         ourShader.use();
         glBindVertexArray(VAOs[0]);
         ourShader.setMat4("projection", projection);
@@ -461,6 +457,20 @@ int main()
         ourShader.setFloat("specularStrength", 1.0f);
 
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesChao) / (5 * sizeof(float)));
+
+
+        // Carro ----------------------------------------------------------------------------------------------
+
+        // Configuração do carro
+        glBindVertexArray(VAOs[1]);
+        glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCarro), verticesCarro, GL_STATIC_DRAW);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+        glEnableVertexAttribArray(2);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture2);
@@ -478,14 +488,17 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCarro) / (5 * sizeof(float)));
 
 
+        // Poste -------------------------------------------------------------------------------------------------
 
         glBindVertexArray(VAOs[2]);
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[2]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(verticesPoste), verticesPoste, GL_STATIC_DRAW);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
         glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+        glEnableVertexAttribArray(2);
 
 
 
@@ -501,6 +514,7 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesPoste) / (5 * sizeof(float)));
 
 
+        // Bandeira ---------------------------------------------------------------------------------------------------
 
         glBindVertexArray(VAOs[3]);
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[3]);
@@ -529,7 +543,7 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesBandeira) / (5 * sizeof(float)));
 
 
-
+        // Lâmpada --------------------------------------------------------------------------------------------------
 
         glBindVertexArray(VAOs[4]);
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[4]);
@@ -540,7 +554,7 @@ int main()
         glEnableVertexAttribArray(1);
 
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture4);
+        glBindTexture(GL_TEXTURE_2D, texture5);
         model = glm::translate(model, glm::vec3(5.0f, 3.0f, 0.0f));
 
         cuboShader.use();
@@ -551,6 +565,7 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCubo) / (5 * sizeof(float)));
 
 
+        // -----------------------------------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
