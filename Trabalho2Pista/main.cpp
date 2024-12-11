@@ -299,11 +299,11 @@ int main()
 
     Shader ourShader("vertex.glsl", "fragment.glsl");
 
-    Shader carShader("vertex.glsl", "car_shader.glsl");
+    Shader carShader("vertex.glsl", "fragment.glsl");
 
-    Shader bandeiraShader("vertex.glsl", "bandeira_shader.glsl");
+    Shader bandeiraShader("vertex.glsl", "fragment.glsl");
 
-    Shader posteShader("vertex.glsl", "poste_shader.glsl");
+    Shader posteShader("vertex.glsl", "fragment.glsl");
 
 
 
@@ -456,7 +456,7 @@ int main()
         ourShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
         ourShader.setFloat("specularStrength", 1.0f);
 
-        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesChao) / (5 * sizeof(float)));
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesChao) / (8 * sizeof(float)));
 
 
         // Carro ----------------------------------------------------------------------------------------------
@@ -482,10 +482,11 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(carShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(carShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
+
         carShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
         carShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
         carShader.setFloat("specularStrength", 1.0f);
-        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCarro) / (5 * sizeof(float)));
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCarro) / (8 * sizeof(float)));
 
 
         // Poste -------------------------------------------------------------------------------------------------
@@ -511,7 +512,12 @@ int main()
         posteShader.setMat4("projection", projection);
         glUniformMatrix4fv(glGetUniformLocation(posteShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(posteShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesPoste) / (5 * sizeof(float)));
+
+        posteShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
+        posteShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
+        posteShader.setFloat("specularStrength", 1.0f);
+
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesPoste) / (8 * sizeof(float)));
 
 
         // Bandeira ---------------------------------------------------------------------------------------------------
@@ -536,11 +542,12 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
+
         bandeiraShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
         bandeiraShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
         bandeiraShader.setFloat("specularStrength", 1.0f);
 
-        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesBandeira) / (5 * sizeof(float)));
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesBandeira) / (8 * sizeof(float)));
 
 
         // Lâmpada --------------------------------------------------------------------------------------------------
