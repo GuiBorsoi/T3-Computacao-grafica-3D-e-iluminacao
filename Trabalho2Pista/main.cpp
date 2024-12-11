@@ -52,8 +52,8 @@ struct CarState {
         angulo = 0.0f;
         speed  = 0.0f;
         aceleracao = 0.01f;
-        maxSpeed   = 0.10f;
-        curvaSpeed = 3.5f;
+        maxSpeed   = 0.01f;
+        curvaSpeed = 0.8f;
     }
 };
 
@@ -553,9 +553,9 @@ int main()
     Shader posteShader("vertex.glsl", "fragment.glsl");
     Shader posteLuzShader("vertex.glsl", "fragment.glsl");
 
-    Shader lightingShader("phong_lighting.vs", "phong_lighting.fs");
+    //Shader lightingShader("phong_lighting.vs", "phong_lighting.fs");
 
-    Shader lightCubeShader("light_cube.vs", "light_cube.fs");
+    //Shader lightCubeShader("light_cube.vs", "light_cube.fs");
 
 
 
@@ -963,18 +963,18 @@ void moveCarFrente() {
     nextPosition.x += newSpeed * cos(angleRad);
     nextPosition.z -= newSpeed * sin(angleRad);
 
-    //Car.speed = newSpeed;
-    //Car.posicao = nextPosition;
-    //updateCarVertices();
+    Car.speed = newSpeed;
+    Car.posicao = nextPosition;
+    updateCarVertices();
 
-    if (verificaCaminhoCarro()) {
+    /*if (verificaCaminhoCarro()) {
         Car.speed = newSpeed;
         Car.posicao = nextPosition;
         updateCarVertices();
     } else {
         // Em caso de colisão, para o carro
         Car.speed = 0.0f;
-    }
+    }*/
 
 }
 
@@ -989,18 +989,18 @@ void moveCarTras() {
     nextPosition.z -= newSpeed * sin(angleRad);
 
 
-    //Car.speed = newSpeed;
-    //Car.posicao = nextPosition;
-    //updateCarVertices();
+    Car.speed = newSpeed;
+    Car.posicao = nextPosition;
+    updateCarVertices();
 
-    if (verificaCaminhoCarro()) {
+    /*if (verificaCaminhoCarro()) {
         Car.speed = newSpeed;
         Car.posicao = nextPosition;
         updateCarVertices();
     } else {
         // Em caso de colisão, para o carro
         Car.speed = 0.0f;
-    }
+    }*/
 }
 
 void moveCarDir() {
