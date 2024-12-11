@@ -18,12 +18,16 @@ const unsigned int SCR_HEIGHT = 1200;
 
 glm::mat4 view;
 glm::mat4 projection;
+glm::vec3 lightPos(5.0f, 3.0f, 0.0f);
 
 // Camera settings original
 
 glm::vec3 cameraPos = glm::vec3(-1.0f, 8.0f, 11.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -10.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
+glm::vec3 luzLamp = glm::vec3(5.8f, 2.0f, 0.7f);
+
+
 float sensitivity = 0.75f;
 float yaw = -90.0f;
 float pitch = 0.0f;
@@ -219,53 +223,42 @@ float verticesBandeira[] = {
 
 
 float verticesCubo[] = {
-    // Frente
-    -0.1f, -0.1f,  0.1f,  0.0f, 0.0f,
-     0.1f, -0.1f,  0.1f,  1.0f, 0.0f,
-     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-    -0.1f,  0.1f,  0.1f,  0.0f, 1.0f,
-    -0.1f, -0.1f,  0.1f,  0.0f, 0.0f,
-
-    // Traseira
-    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
-     0.1f, -0.1f, -0.1f,  1.0f, 0.0f,
-     0.1f,  0.1f, -0.1f,  1.0f, 1.0f,
-     0.1f,  0.1f, -0.1f,  1.0f, 1.0f,
-    -0.1f,  0.1f, -0.1f,  0.0f, 1.0f,
-    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
-
-    // Esquerda
-    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
-    -0.1f, -0.1f,  0.1f,  1.0f, 0.0f,
-    -0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-    -0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-    -0.1f,  0.1f, -0.1f,  0.0f, 1.0f,
-    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
-
-    // Direita
-     0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
-     0.1f, -0.1f,  0.1f,  1.0f, 0.0f,
-     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-     0.1f,  0.1f, -0.1f,  0.0f, 1.0f,
-     0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
-
-    // Cima
-    -0.1f,  0.1f, -0.1f,  0.0f, 0.0f,
-     0.1f,  0.1f, -0.1f,  1.0f, 0.0f,
-     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-     0.1f,  0.1f,  0.1f,  1.0f, 1.0f,
-    -0.1f,  0.1f,  0.1f,  0.0f, 1.0f,
-    -0.1f,  0.1f, -0.1f,  0.0f, 0.0f,
-
-    // Baixo
-    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
-     0.1f, -0.1f, -0.1f,  1.0f, 0.0f,
-     0.1f, -0.1f,  0.1f,  1.0f, 1.0f,
-     0.1f, -0.1f,  0.1f,  1.0f, 1.0f,
-    -0.1f, -0.1f,  0.1f,  0.0f, 1.0f,
-    -0.1f, -0.1f, -0.1f,  0.0f, 0.0f,
+    -0.1f, -0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+ 0.1f, -0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 0.0f,
+ 0.1f,  0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
+ 0.1f,  0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
+-0.1f,  0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 1.0f,
+-0.1f, -0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+-0.1f, -0.1f, -0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+ 0.1f, -0.1f, -0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 0.0f,
+ 0.1f,  0.1f, -0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
+ 0.1f,  0.1f, -0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
+-0.1f,  0.1f, -0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 1.0f,
+-0.1f, -0.1f, -0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+-0.1f, -0.1f, -0.1f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+-0.1f, -0.1f,  0.1f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+-0.1f,  0.1f,  0.1f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+-0.1f,  0.1f,  0.1f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+-0.1f,  0.1f, -0.1f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+-0.1f, -0.1f, -0.1f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+ 0.1f, -0.1f, -0.1f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+ 0.1f, -0.1f,  0.1f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+ 0.1f,  0.1f,  0.1f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+ 0.1f,  0.1f,  0.1f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+ 0.1f,  0.1f, -0.1f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+ 0.1f, -0.1f, -0.1f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+-0.1f,  0.1f, -0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+ 0.1f,  0.1f, -0.1f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+ 0.1f,  0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+ 0.1f,  0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+-0.1f,  0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
+-0.1f,  0.1f, -0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+-0.1f, -0.1f, -0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+ 0.1f, -0.1f, -0.1f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+ 0.1f, -0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+ 0.1f, -0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+-0.1f, -0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
+-0.1f, -0.1f, -0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
 };
 
 
@@ -305,16 +298,20 @@ int main()
 
     Shader posteShader("vertex.glsl", "fragment.glsl");
 
+    Shader lightingShader("phong_lighting.vs", "phong_lighting.fs");
+
+    Shader lightCubeShader("light_cube.vs", "light_cube.fs");
 
 
-    Shader cuboShader("vertex.glsl", "bandeira_shader.glsl");
+
+    Shader cuboShader("vertex.glsl", "fragment.glsl");
 
 
     viraCamera(0.0f, -60.0f);
 
-    GLuint VBOs[5], VAOs[5];
-    glGenVertexArrays(5, VAOs);
-    glGenBuffers(5, VBOs);
+    GLuint VBOs[6], VAOs[6];
+    glGenVertexArrays(6, VAOs);
+    glGenBuffers(6, VBOs);
 
     glBindVertexArray(VAOs[0]);
     glBindBuffer(GL_ARRAY_BUFFER, VBOs[0]);
@@ -451,17 +448,17 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(ourShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(ourShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
-
+        ourShader.setVec3("lightPos", lightPos);
+        ourShader.setVec3("viewPos", luzLamp);
         ourShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
         ourShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
-        ourShader.setFloat("specularStrength", 1.0f);
+        ourShader.setFloat("specularStrength", 5.0f);
 
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesChao) / (8 * sizeof(float)));
 
 
         // Carro ----------------------------------------------------------------------------------------------
 
-        // Configuração do carro
         glBindVertexArray(VAOs[1]);
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[1]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCarro), verticesCarro, GL_STATIC_DRAW);
@@ -482,10 +479,11 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(carShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(carShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
-
+        carShader.setVec3("lightPos", lightPos);
+        carShader.setVec3("viewPos", luzLamp);
         carShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
         carShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
-        carShader.setFloat("specularStrength", 1.0f);
+        carShader.setFloat("specularStrength", 5.0f);
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCarro) / (8 * sizeof(float)));
 
 
@@ -513,9 +511,11 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(posteShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(posteShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
+        posteShader.setVec3("lightPos", lightPos);
+        posteShader.setVec3("viewPos", luzLamp);
         posteShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
         posteShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
-        posteShader.setFloat("specularStrength", 1.0f);
+        posteShader.setFloat("specularStrength", 0.0f);
 
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesPoste) / (8 * sizeof(float)));
 
@@ -542,10 +542,11 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(bandeiraShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
-
+        bandeiraShader.setVec3("lightPos", lightPos);
+        bandeiraShader.setVec3("viewPos", luzLamp);
         bandeiraShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
         bandeiraShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
-        bandeiraShader.setFloat("specularStrength", 1.0f);
+        bandeiraShader.setFloat("specularStrength", 0.0f);
 
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesBandeira) / (8 * sizeof(float)));
 
@@ -555,30 +556,74 @@ int main()
         glBindVertexArray(VAOs[4]);
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[4]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCubo), verticesCubo, GL_STATIC_DRAW);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
-        glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
         glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+        glEnableVertexAttribArray(2);
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture5);
-        model = glm::translate(model, glm::vec3(5.0f, 3.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(7.0f, 2.0f, 0.0f));
 
         cuboShader.use();
         glBindVertexArray(VAOs[4]);
         cuboShader.setMat4("projection", projection);
         glUniformMatrix4fv(glGetUniformLocation(cuboShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
         glUniformMatrix4fv(glGetUniformLocation(cuboShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCubo) / (5 * sizeof(float)));
+
+        cuboShader.setVec3("objectColor", 5.0f, 5.5f, 5.31f);
+        cuboShader.setVec3("lightColor", 5.0f, 5.0f, 5.0f);
+        cuboShader.setVec3("lightPos", lightPos);
+        cuboShader.setVec3("viewPos", luzLamp);
+        cuboShader.setFloat("specularStrength",5.0f);
+
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCubo) / (8 * sizeof(float)));
 
 
-        // -----------------------------------------------------------------------------------------------------------
+        // Luz -----------------------------------------------------------------------------------------------------------
+
+        glBindVertexArray(VAOs[5]);
+
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBOs[5]);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCubo), verticesCubo, GL_STATIC_DRAW);
+
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+        glEnableVertexAttribArray(2);
+
+
+        // be sure to activate shader when setting uniforms/drawing objects
+        lightingShader.use();
+        lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+        lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("lightPos", lightPos);
+        lightingShader.setVec3("viewPos", luzLamp);
+        lightingShader.setFloat("specularStrength",0.0f);
+
+        lightingShader.setMat4("projection", projection);
+        lightingShader.setMat4("view", view);
+
+        model = glm::translate(model, glm::vec3(2.0f, 2.0f, 0.0f));
+
+        lightingShader.setMat4("model", model);
+
+
+        //glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCubo) / (8 * sizeof(float)));
+
+
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glDeleteVertexArrays(5, VAOs);
-    glDeleteBuffers(5, VBOs);
+    glDeleteVertexArrays(6, VAOs);
+    glDeleteBuffers(6, VBOs);
     glfwTerminate();
     return 0;
 }
