@@ -1260,3 +1260,42 @@
 	<sstream>
 	<iostream>
 
+1733946056 source:e:\ucs trab\sem 14 - computação gráfica\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\include\stb_image.cpp
+	"stb_image.h"
+
+1733946056 e:\ucs trab\sem 14 - computação gráfica\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\include\stb_image.h
+	"stb_image.h"
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<stddef.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<stdint.h>
+	<emmintrin.h>
+	<intrin.h>
+	<arm_neon.h>
+
+1733951388 source:e:\ucs trab\sem 14 - computação gráfica\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\main.cpp
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<stb_image.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<glm/gtc/type_ptr.hpp>
+	<Shader.h>
+	<iostream>
+	<vector>
+
+1733946056 e:\ucs trab\sem 14 - computação gráfica\t3-computacao-grafica-3d-e-iluminacao\trabalho2pista\include\shader.h
+	<GL/glew.h>
+	<glm/glm.hpp>
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+

@@ -18,7 +18,7 @@ const unsigned int SCR_HEIGHT = 1200;
 
 glm::mat4 view;
 glm::mat4 projection;
-glm::vec3 lightPos(5.0f, 3.0f, 0.0f);
+glm::vec3 lightPos(3.0f, 3.0f, 2.0f);
 
 // Camera settings original
 
@@ -326,7 +326,7 @@ float verticesBandeira[] = {
 };
 
 float verticesCubo[] = {
-    -0.1f, -0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
+-0.1f, -0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  0.0f, 0.0f,
  0.1f, -0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 0.0f,
  0.1f,  0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
  0.1f,  0.1f,  0.1f, 0.0f, 0.0f, 1.0f,  1.0f, 1.0f,
@@ -362,6 +362,53 @@ float verticesCubo[] = {
  0.1f, -0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
 -0.1f, -0.1f,  0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
 -0.1f, -0.1f, -0.1f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+};
+
+float verticesPosteLuz[] = {
+
+    -0.1f, -0.6f, -0.1f,      0.0f, 0.0f, 1.0f,      0.0f, 0.0f,
+     0.1f, -0.6f, -0.1f,      0.0f, 0.0f, 1.0f,      1.0f, 0.0f,
+     0.1f,  3.5f, -0.1f,      0.0f, 0.0f, 1.0f,      1.0f, 1.0f,
+     0.1f,  3.5f, -0.1f,      0.0f, 0.0f, 1.0f,      1.0f, 1.0f,
+    -0.1f,  3.5f, -0.1f,      0.0f, 0.0f, 1.0f,      0.0f, 1.0f,
+    -0.1f, -0.6f, -0.1f,      0.0f, 0.0f, 1.0f,      0.0f, 0.0f,
+    -0.1f, -0.6f,  0.1f,      0.0f, 0.0f, 1.0f,      0.0f, 0.0f,
+     0.1f, -0.6f,  0.1f,      0.0f, 0.0f, 1.0f,      1.0f, 0.0f,
+     0.1f,  3.5f,  0.1f,      0.0f, 0.0f, 1.0f,      1.0f, 1.0f,
+     0.1f,  3.5f,  0.1f,      0.0f, 0.0f, 1.0f,      1.0f, 1.0f,
+    -0.1f,  3.5f,  0.1f,      0.0f, 0.0f, 1.0f,      0.0f, 1.0f,
+    -0.1f, -0.6f,  0.1f,      0.0f, 0.0f, 1.0f,      0.0f, 0.0f,
+    -0.1f, -0.6f,  0.1f,      1.0f, 0.0f, 0.0f,      0.0f, 0.0f,
+    -0.1f, -0.6f, -0.1f,      1.0f, 0.0f, 0.0f,      1.0f, 0.0f,
+    -0.1f,  3.5f, -0.1f,      1.0f, 0.0f, 0.0f,      1.0f, 1.0f,
+    -0.1f,  3.5f, -0.1f,      1.0f, 0.0f, 0.0f,      1.0f, 1.0f,
+    -0.1f,  3.5f,  0.1f,      1.0f, 0.0f, 0.0f,      0.0f, 1.0f,
+    -0.1f, -0.6f,  0.1f,      1.0f, 0.0f, 0.0f,      0.0f, 0.0f,
+     0.1f, -0.6f,  0.1f,      1.0f, 0.0f, 0.0f,      0.0f, 0.0f,
+     0.1f, -0.6f, -0.1f,      1.0f, 0.0f, 0.0f,      1.0f, 0.0f,
+     0.1f,  3.5f, -0.1f,      1.0f, 0.0f, 0.0f,      1.0f, 1.0f,
+     0.1f,  3.5f, -0.1f,      1.0f, 0.0f, 0.0f,      1.0f, 1.0f,
+     0.1f,  3.5f,  0.1f,      1.0f, 0.0f, 0.0f,      0.0f, 1.0f,
+     0.1f, -0.6f,  0.1f,      1.0f, 0.0f, 0.0f,      0.0f, 0.0f,
+    -0.1f, -0.6f, -0.1f,      0.0f, -1.0f, 0.0f,      0.0f, 0.0f,
+     0.1f, -0.6f, -0.1f,      0.0f, -1.0f, 0.0f,      1.0f, 0.0f,
+     0.1f, -0.6f,  0.1f,      0.0f, -1.0f, 0.0f,      1.0f, 1.0f,
+     0.1f, -0.6f,  0.1f,      0.0f, -1.0f, 0.0f,      1.0f, 1.0f,
+    -0.1f, -0.6f,  0.1f,      0.0f, -1.0f, 0.0f,      0.0f, 1.0f,
+    -0.1f, -0.6f, -0.1f,      0.0f, -1.0f, 0.0f,      0.0f, 0.0f,
+    -0.1f,  3.5f, -0.1f,      0.0f, -1.0f, 0.0f,      0.0f, 0.0f,
+     0.1f,  3.5f, -0.1f,      0.0f, -1.0f, 0.0f,      1.0f, 0.0f,
+     0.1f,  3.5f,  0.1f,      0.0f, -1.0f, 0.0f,      1.0f, 1.0f,
+     0.1f,  3.5f,  0.1f,      0.0f, -1.0f, 0.0f,      1.0f, 1.0f,
+    -0.1f,  3.5f,  0.1f,      0.0f, -1.0f, 0.0f,      0.0f, 1.0f,
+    -0.1f,  3.5f, -0.1f,      0.0f, -1.0f, 0.0f,      0.0f, 0.0f,
+    0.1f,  3.4f,  0.1f,       0.0f, -1.0f, 0.0f,     0.0f, 0.0f,
+    0.1f,  3.4f, -0.1f,       0.0f, -1.0f, 0.0f,     1.0f, 0.0f,
+    1.1f,  3.4f, -0.1f,       0.0f, -1.0f, 0.0f,     1.0f, 1.0f,
+    1.1f,  3.4f, -0.1f,       0.0f, -1.0f, 0.0f,     1.0f, 1.0f,
+    1.1f,  3.4f,  0.1f,       0.0f, -1.0f, 0.0f,     0.0f, 1.0f,
+    0.1f,  3.4f,  0.1f,       0.0f, -1.0f, 0.0f,     0.0f, 0.0f,
+
 };
 
 
@@ -400,6 +447,7 @@ int main()
     Shader bandeiraShader("vertex.glsl", "fragment.glsl");
 
     Shader posteShader("vertex.glsl", "fragment.glsl");
+    Shader posteLuzShader("vertex.glsl", "fragment.glsl");
 
     Shader lightingShader("phong_lighting.vs", "phong_lighting.fs");
 
@@ -522,6 +570,9 @@ int main()
 
     posteShader.use();
     posteShader.setInt("texture3", 0);
+
+    posteLuzShader.use();
+    posteLuzShader.setInt("texture3", 0);
 
     bandeiraShader.use();
     bandeiraShader.setInt("texture4", 0);
@@ -668,7 +719,7 @@ int main()
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture5);
-        model = glm::translate(model, glm::vec3(7.0f, 2.0f, 0.0f));
+        model = glm::translate(model, glm::vec3(6.2f, 4.2f, 1.2f));
 
         cuboShader.use();
         glBindVertexArray(VAOs[4]);
@@ -685,14 +736,11 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCubo) / (8 * sizeof(float)));
 
 
-        // Luz -----------------------------------------------------------------------------------------------------------
+        // Poste de Luz  -----------------------------------------------------------------------------------------------------------
 
         glBindVertexArray(VAOs[5]);
-
-
         glBindBuffer(GL_ARRAY_BUFFER, VBOs[5]);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesCubo), verticesCubo, GL_STATIC_DRAW);
-
+        glBufferData(GL_ARRAY_BUFFER, sizeof(verticesPosteLuz), verticesPosteLuz, GL_STATIC_DRAW);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
@@ -701,23 +749,24 @@ int main()
         glEnableVertexAttribArray(2);
 
 
-        // be sure to activate shader when setting uniforms/drawing objects
-        lightingShader.use();
-        lightingShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-        lightingShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-        lightingShader.setVec3("lightPos", lightPos);
-        lightingShader.setVec3("viewPos", luzLamp);
-        lightingShader.setFloat("specularStrength",0.0f);
 
-        lightingShader.setMat4("projection", projection);
-        lightingShader.setMat4("view", view);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture3);
+        model = glm::translate(model, glm::vec3(-1.2f, -3.4f, 0.0f));
 
-        model = glm::translate(model, glm::vec3(2.0f, 2.0f, 0.0f));
+        posteLuzShader.use();
+        glBindVertexArray(VAOs[5]);
+        posteLuzShader.setMat4("projection", projection);
+        glUniformMatrix4fv(glGetUniformLocation(posteLuzShader.ID, "view"), 1, GL_FALSE, &view[0][0]);
+        glUniformMatrix4fv(glGetUniformLocation(posteLuzShader.ID, "model"), 1, GL_FALSE, glm::value_ptr(model));
 
-        lightingShader.setMat4("model", model);
+        posteLuzShader.setVec3("lightPos", lightPos);
+        posteLuzShader.setVec3("viewPos", luzLamp);
+        posteLuzShader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 0.0f));
+        posteLuzShader.setVec3("objectColor", glm::vec3(0.83f, 0.68f, 0.21f));
+        posteLuzShader.setFloat("specularStrength", 0.0f);
 
-
-        //glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesCubo) / (8 * sizeof(float)));
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(verticesPosteLuz) / (8 * sizeof(float)));
 
 
 
@@ -811,7 +860,11 @@ void moveCarFrente() {
     nextPosition.x += newSpeed * cos(angleRad);
     nextPosition.z -= newSpeed * sin(angleRad);
 
-    if (verificaCursoCarro()) {
+    Car.speed = newSpeed;
+    Car.posicao = nextPosition;
+    updateCarVertices();
+
+    /*if (verificaCursoCarro()) {
         Car.speed = newSpeed;
         Car.posicao = nextPosition;
         updateCarVertices();
@@ -819,7 +872,7 @@ void moveCarFrente() {
         // Em caso de colisão, para o carro
         Car.speed = 0.0f;
     }
-
+*/
 }
 
 void moveCarTras() {
@@ -833,14 +886,18 @@ void moveCarTras() {
     nextPosition.z -= newSpeed * sin(angleRad);
 
 
-    if (verificaCursoCarro()) {
+    Car.speed = newSpeed;
+    Car.posicao = nextPosition;
+    updateCarVertices();
+
+    /*if (verificaCursoCarro()) {
         Car.speed = newSpeed;
         Car.posicao = nextPosition;
         updateCarVertices();
     } else {
         // Em caso de colisão, para o carro
         Car.speed = 0.0f;
-    }
+    }*/
 }
 
 void moveCarDir() {
